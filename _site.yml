@@ -5,7 +5,7 @@ navbar:
   type: inverse
   left:
     - text: "Home"
-      href: sylb.html
+      href: index.html
     - text: "Computer setup"
       href: comp.html
     - text: "Class 1"
