@@ -12,7 +12,7 @@
 <meta name="author" content="PCB 5423" />
 
 
-<title>Class 1: Introduction to R</title>
+<title>Workshop 1: Introduction to R</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -409,9 +409,6 @@ div.tocify {
 <li>
   <a href="class1.html">Workshop 1</a>
 </li>
-<li>
-  <a href="class2.html">Workshop 2</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -424,7 +421,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class 1: Introduction to R</h1>
+<h1 class="title toc-ignore">Workshop 1: Introduction to R</h1>
 <h4 class="author">PCB 5423</h4>
 <h4 class="date">8/23/2022</h4>
 
@@ -436,8 +433,8 @@ div.tocify {
 <p>R is a programming language that has become the standard in Ecology
 due to its flexibility and open source nature. R can be used from simple
 math to complex models and is very useful for generating figures. R,
-like all computer languages, using a specific syntax to run commands
-that it is programmed to do. In other words, R will only do what it is
+like all computer languages, uses a specific syntax to run commands that
+it is programmed to do. In other words, R will only do what it is
 commanded to do, and therefore, many common errors are due to errors in
 syntax (e.g. misspellings, missed commas, or unclosed brackets).</p>
 <p>This example gives a basic intro into R syntax that can be useful for
@@ -457,6 +454,7 @@ ecological research. This script gives examples of how to:</p>
 <li>piping</li>
 </ul></li>
 </ol>
+<p><a href="">R script of workshop 1</a></p>
 </div>
 <div id="basic-operations-in-r" class="section level2">
 <h2>Basic operations in R</h2>
@@ -741,8 +739,8 @@ rows and columns. ***Note that <code>pivot_longer()</code> and
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">Feb =</span> <span class="fu">c</span>(<span class="dv">1010</span>, <span class="dv">15</span>, <span class="dv">30</span>),</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">March =</span> <span class="fu">c</span>(<span class="dv">1005</span>, <span class="dv">25</span>, <span class="dv">180</span>))</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> stock <span class="sc">%&gt;%</span> </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Jan<span class="sc">:</span>March, </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">pivot_longer</span>(stock,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">cols =</span> Jan<span class="sc">:</span>March, </span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;Month&#39;</span>,</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;Price&#39;</span>)</span>
 <span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,15 +773,16 @@ rows and columns. ***Note that <code>pivot_longer()</code> and
 <span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Salmon   2020    60</span></span>
 <span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Cod      2020   100</span></span>
 <span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>fish <span class="sc">%&gt;%</span></span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">id_cols =</span> species, </span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">names_from =</span> year,</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> catch)</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 4</span></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="do">##   species `1999` `2005` `2020`</span></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Salmon      50     40     60</span></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Cod         60     50    100</span></span></code></pre></div>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="fu">pivot_wider</span>(fish,</span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">id_cols =</span> species,</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">names_from =</span> year,</span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">values_from =</span> catch)</span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 4</span></span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="do">##   species `1999` `2005` `2020`</span></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Salmon      50     40     60</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Cod         60     50    100</span></span></code></pre></div>
 </div>
 <div id="piping" class="section level3">
 <h3>piping</h3>

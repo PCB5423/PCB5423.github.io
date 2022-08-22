@@ -1,5 +1,5 @@
 ---
-title: "Class 1: Introduction to R"
+title: "Workshop 1: Introduction to R"
 author: "PCB 5423"
 date: "8/23/2022"
 output: 
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(collapse = T, cache = T)
 
 ## Getting to know the basics 
 
-R is a programming language that has become the standard in Ecology due to its flexibility and open source nature. R can be used from simple math to complex models and is very useful for generating figures. R, like all computer languages, using a specific syntax to run commands that it is programmed to do. In other words, R will only do what it is commanded to do, and therefore, many common errors are due to errors in syntax (e.g. misspellings, missed commas, or unclosed brackets). 
+R is a programming language that has become the standard in Ecology due to its flexibility and open source nature. R can be used from simple math to complex models and is very useful for generating figures. R, like all computer languages, uses a specific syntax to run commands that it is programmed to do. In other words, R will only do what it is commanded to do, and therefore, many common errors are due to errors in syntax (e.g. misspellings, missed commas, or unclosed brackets). 
 
 This example gives a basic intro into R syntax that can be useful for ecological research. This script gives examples of how to:
 
@@ -28,6 +28,8 @@ This example gives a basic intro into R syntax that can be useful for ecological
 6.  `tidyverse`
       + tidy data
       + piping 
+      
+[R script of workshop 1]()
 
 ## Basic operations in R
 
@@ -227,8 +229,8 @@ stock = tibble(name = c('GOOG', 'AMC', 'GME'),
                Feb = c(1010, 15, 30),
                March = c(1005, 25, 180))
 
-df = stock %>% 
-  pivot_longer(cols = Jan:March, 
+df = pivot_longer(stock,
+               cols = Jan:March, 
                names_to = 'Month',
                values_to = 'Price')
 
@@ -240,10 +242,11 @@ fish = tibble(species = rep(c('Salmon', 'Cod'),times = 3),
               catch = c(50, 60, 40, 50, 60, 100))
 fish 
 
-fish %>%
-  pivot_wider(id_cols = species, 
-              names_from = year,
-              values_from = catch)
+
+pivot_wider(fish,
+            id_cols = species,
+            names_from = year,
+            values_from = catch)
 ```
 
 ### piping  
