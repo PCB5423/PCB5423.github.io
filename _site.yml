@@ -1,18 +1,17 @@
 name: "PCB 5423"                                # CHANGE HERE 
 output_dir: "."
 navbar:
-  title: "PCB 5423"                             # CHANGE HERE 
+  title: "BSC 6926"                             # CHANGE HERE 
   type: inverse
   left:
-    - text: "Home"
+    - text: "Syllabus"
       href: sylb.html
     - text: "Computer setup"
       href: comp.html
-    - text: "Class 1"
+    - text: "Workshop 1"
       href: class1.html
-    - text: "Class 2"
-      href: class2.html  # CHANGE HERE OR DELETE ALL 3 LINES 
-    # CHANGE HERE 
+    # - text: "Workshop 2"
+    #   href: class2.html  
 output:
   html_document:
     theme: yeti
