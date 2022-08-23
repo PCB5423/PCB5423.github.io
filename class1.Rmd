@@ -1,6 +1,6 @@
 ---
 title: "Workshop 1: Introduction to R"
-author: "PCB 5423"
+author: "BSC 6926 B53"
 date: "8/23/2022"
 output: 
   html_document:

@@ -5,11 +5,14 @@ title: "BSC 6926 B53"
 ### BSC 6926 B53: R workshop on population and community ecological modeling
 This is the course website for the R workshop that coincides with PCB 5423 (Advanced Ecology). This website will have the Rmarkdown lessons for each workshop. Find the course schedule and Syllabus [here](sylb.html). This course will be based in R and information about downloading R and Rstudio can be found [here](comp.html). 
 
-
-### R Resources
-
+### Class Resources
+-   [Zoom link](https://fiu.zoom.us/j/94001884298?pwd=b25VZTh6eHFlOVdjRDhrbUV6OTBVZz09)
+-   Github repository for workshop R scripts  <https://github.com/PCB5423/BSC6926_workshopScripts>
+-   Website Github repository <https://github.com/PCB5423/PCB5423.github.io>
 -   Textbook for R exercises (S) Stevens, M.H.H. 2010. A primer of ecology with R. ISBN 978-0-387-89881-0 (Electronically available at FIU Library)
 E-book version: <https://hankstevens.github.io/Primer-of-Ecology/>
+
+### R Resources
 -    R for Data Science by Hadley Wickham and Garret Grolemund -- An introduction to programming with R: <https://r4ds.had.co.nz/>\
 -    Quick-R by datacamp: Quick overview on R programming and statistical approaches.There are more tutorials but you will require to register\
 -    RStudio Cloud Training Exercises: <https://rstudio.cloud/learn/primers>\

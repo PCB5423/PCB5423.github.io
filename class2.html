@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="PCB 5423" />
+<meta name="author" content="BSC 6926 B53" />
 
 
-<title>Class 1: Introduction to R</title>
+<title>Workshop 2: Introduction to R</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -409,9 +409,6 @@ div.tocify {
 <li>
   <a href="class1.html">Workshop 1</a>
 </li>
-<li>
-  <a href="class2.html">Workshop 2</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -424,8 +421,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Class 1: Introduction to R</h1>
-<h4 class="author">PCB 5423</h4>
+<h1 class="title toc-ignore">Workshop 2: Introduction to R</h1>
+<h4 class="author">BSC 6926 B53</h4>
 <h4 class="date">8/30/2022</h4>
 
 </div>
@@ -443,18 +440,25 @@ syntax (e.g. misspellings, missed commas, or unclosed brackets).</p>
 <p>This example gives a basic intro into R syntax that can be useful for
 ecological research. This script gives examples of how to:</p>
 <ol style="list-style-type: decimal">
-<li>Indexing</li>
-<li>For loops</li>
-<li>Vector operations
+<li>Working with dataframes (10 min)</li>
+<li>Indexing (5 min)</li>
+<li>Conditional Statements (5 min)</li>
+<li>For loops (5 min)</li>
+<li>Vector operations (5 min)
 <ul>
 <li>Custom Functions</li>
 <li><code>purr</code></li>
 </ul></li>
-<li>Figures with <code>ggplot2</code>
+<li>Figures with <code>ggplot2</code> (5 min)
 <ul>
 <li>Combining plots</li>
 </ul></li>
+<li>Practice Exercises (30 min)</li>
 </ol>
+<p><a
+href="https://github.com/PCB5423/BSC6926_workshopScripts/blob/master/workshop1.R">R
+script of workshop 2</a></p>
+<p><a href="">data for workshop 2</a></p>
 </div>
 <div id="working-with-dataframes-and-tibbles" class="section level2">
 <h2>Working with <code>dataframes</code> and <code>tibbles</code></h2>
@@ -549,17 +553,17 @@ easiest way to rename columns is with <code>dplyr</code> functions like
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 AMC       2    15    25 new column    42 blue      42 FALSE</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 GME       4    30   180 new column   214 blue     214 FALSE</span></span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Name =</span> name, <span class="at">January =</span> Jan, <span class="at">February =</span> Feb)</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 9</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="do">##   Name  January February March new          tot newCol   sum big  </span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 GOOG     1000     1010  1005 new column  3015 blue    3015 TRUE </span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 AMC         2       15    25 new column    42 blue      42 FALSE</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 GME         4       30   180 new column   214 blue     214 FALSE</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># rename columns</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Name =</span> name, <span class="at">January =</span> Jan, <span class="at">February =</span> Feb)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 9</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="do">##   Name  January February March new          tot newCol   sum big  </span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;chr&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt; &lt;lgl&gt;</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 GOOG     1000     1010  1005 new column  3015 blue    3015 TRUE </span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 AMC         2       15    25 new column    42 blue      42 FALSE</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 GME         4       30   180 new column   214 blue     214 FALSE</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># rename, reorder, only include certain columns </span></span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">Name =</span> name, <span class="at">January =</span> Jan, sum, <span class="fu">everything</span>())</span>
 <span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 3 × 9</span></span>

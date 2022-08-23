@@ -1,6 +1,6 @@
 ---
-title: "Class 1: Introduction to R"
-author: "PCB 5423"
+title: "Workshop 2: Introduction to R"
+author: "BSC 6926 B53"
 date: "8/30/2022"
 output: 
   html_document:
@@ -19,14 +19,20 @@ R is a programming language that has become the standard in Ecology due to its f
 
 This example gives a basic intro into R syntax that can be useful for ecological research. This script gives examples of how to:
 
-1.  Indexing
-2.  For loops
-3.  Vector operations 
+1.  Working with dataframes (10 min)
+2.  Indexing (5 min)
+3.  Conditional Statements (5 min)
+4.  For loops (5 min)
+5.  Vector operations (5 min)
       + Custom Functions
       + `purr`
-13.  Figures with `ggplot2`
+6.  Figures with `ggplot2` (5 min)
       + Combining plots
+7. Practice Exercises (30 min)
 
+[R script of workshop 2](https://github.com/PCB5423/BSC6926_workshopScripts/blob/master/workshop1.R)
+
+[data for workshop 2]()
 
 ## Working with `dataframes` and `tibbles`
 Using either `dataframes` or `tibbles` will likely be the most common data structure for ecological data. Making these data structures is easy with the `data.frame()` or `tibble()` functions. Tibbles have more flexibility than dataframes and are part of the `tidyverse`. Dataframes are base R. When reading in tabular data, `read.csv()` will create a dataframe, while `read_csv()` will generate a tibble. 
@@ -81,11 +87,11 @@ df = df %>%
          big = sum > 500)
 df
 
+# rename columns
 df %>%
   rename(Name = name, January = Jan, February = Feb)
 
- 
-
+# rename, reorder, only include certain columns 
 df %>%
   select(Name = name, January = Jan, sum, everything())
 ```
