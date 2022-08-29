@@ -34,6 +34,16 @@ This example gives a basic intro into R syntax that can be useful for ecological
 
 data: [github](https://github.com/PCB5423/BSC6926_workshopScripts/blob/master/data/LDWFBayAnchovy2007.csv)
 
+```{r, include = F}
+
+library(magrittr)
+readLines("data/LDWFBayAnchovy2007.csv.csv") %>% 
+  paste0(collapse="\n") %>% 
+  openssl::base64_encode() -> encoded
+```
+
+[Download CSV](`r sprintf('data:text/LDWFBayAnchovy2007.csv;base64,%s', encoded)`)
+
 ## Working with `dataframes` and `tibbles`
 Using either `dataframes` or `tibbles` will likely be the most common data structure for ecological data. Making these data structures is easy with the `data.frame()` or `tibble()` functions. Tibbles have more flexibility than dataframes and are part of the `tidyverse`. Dataframes are base R. When reading in tabular data, `read.csv()` will create a dataframe, while `read_csv()` will generate a tibble. `read_csv()` can be paired with `url()` to use data directly from the internet from sites like github. Note that if from github the raw file (click on raw tab when looking at github file) is needed for this to work.
 
