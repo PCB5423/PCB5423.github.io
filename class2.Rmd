@@ -100,6 +100,8 @@ df %>%
 # rename, reorder, only include certain columns 
 df %>%
   select(Name = name, January = Jan, sum, everything())
+
+#NOTE: Consider adding example of how to sort rows or order df
 ```
 
 ### Summarizing data
@@ -258,7 +260,7 @@ if (b == 10){
 }else{
   cat('nothing')
 }
-
+#NOTE: Add comment of what \n and cat is doing
 ```
 ### `dplyr` functions
 `dplyr` has two functions that are very useful for conditional statements. Because they are a function they can be vectorized which will be useful as you see below. `if_else()` is a function that based on if the input is `TRUE` or `FALSE` produces a different answer. `case_when()` is more flexible and allows for multple outputs based on conditions being `TRUE`
