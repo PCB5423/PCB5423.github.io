@@ -101,7 +101,12 @@ df %>%
 df %>%
   select(Name = name, January = Jan, sum, everything())
 
-#NOTE: Consider adding example of how to sort rows or order df
+# order data frame
+df %>% 
+  arrange(sum)
+
+df %>% 
+  arrange(desc(sum))
 ```
 
 ### Summarizing data
@@ -237,7 +242,7 @@ These can be done with `if` and `if else` statements in base R. These are writte
 b = 5 
 
 if (b == 5){
-  cat('b = 5 \n')
+  cat('b = 5 \n') # \n is carriage return to end line when printing
 }
 
 if (TRUE){
@@ -258,9 +263,8 @@ if (b == 10){
 }else if (b == 5){
   cat('it worked \n')
 }else{
-  cat('nothing')
+  cat('nothing \n')
 }
-#NOTE: Add comment of what \n and cat is doing
 ```
 ### `dplyr` functions
 `dplyr` has two functions that are very useful for conditional statements. Because they are a function they can be vectorized which will be useful as you see below. `if_else()` is a function that based on if the input is `TRUE` or `FALSE` produces a different answer. `case_when()` is more flexible and allows for multple outputs based on conditions being `TRUE`
