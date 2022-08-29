@@ -10,8 +10,8 @@ navbar:
       href: comp.html
     - text: "Workshop 1"
       href: class1.html
-    # - text: "Workshop 2"
-    #   href: class2.html  
+    - text: "Workshop 2"
+      href: class2.html
 output:
   html_document:
     theme: yeti

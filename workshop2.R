@@ -1,43 +1,28 @@
----
-title: "Workshop 2: Introduction to R"
-author: "BSC 6926 B53"
-date: "8/30/2022"
-output: 
-  html_document:
-    toc: true
-    toc_float: true
-    theme: yeti
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = T, cache = T)
-```
+# """ BSC 6926 B53 
+#     Workshop 2: Introduction to R continued
+#     authors: Santos and James
+#     date: 8/30/2022"""
 
 ## Getting to know the basics 
 
-R is a programming language that has become the standard in Ecology due to its flexibility and open source nature. R can be used from simple math to complex models and is very useful for generating figures. R, like all computer languages, using a specific syntax to run commands that it is programmed to do. In other words, R will only do what it is commanded to do, and therefore, many common errors are due to errors in syntax (e.g. misspellings, missed commas, or unclosed brackets). 
-
-This example gives a basic intro into R syntax that can be useful for ecological research. This script gives examples of how to:
-
-1.  Working with dataframes (10 min)
-2.  Indexing (5 min)
-3.  Conditional Statements (5 min)
-4.  For loops (5 min)
-5.  Vector operations (5 min)
-      + Custom Functions
-      + `purr`
-6.  Figures with `ggplot2` (5 min)
-      + Combining plots
-7. Practice Exercises (30 min)
-
-[R script](workshop2.R)
-
-data: [github](https://github.com/PCB5423/BSC6926_workshopScripts/blob/master/data/LDWFBayAnchovy2007.csv)
+# R is a programming language that has become the standard in Ecology due to its flexibility and open source nature. R can be used from simple math to complex models and is very useful for generating figures. R, like all computer languages, using a specific syntax to run commands that it is programmed to do. In other words, R will only do what it is commanded to do, and therefore, many common errors are due to errors in syntax (e.g. misspellings, missed commas, or unclosed brackets). 
+# 
+# This example gives a basic intro into R syntax that can be useful for ecological research. This script gives examples of how to:
+#   
+# 1.  Working with dataframes (10 min)
+# 2.  Indexing (5 min)
+# 3.  Conditional Statements (5 min)
+# 4.  For loops (5 min)
+# 5.  Vector operations (5 min)
+# + Custom Functions
+# + `purr`
+# 6.  Figures with `ggplot2` (5 min)
+# + Combining plots
+# 7. Practice Exercises (30 min)
 
 ## Working with `dataframes` and `tibbles`
-Using either `dataframes` or `tibbles` will likely be the most common data structure for ecological data. Making these data structures is easy with the `data.frame()` or `tibble()` functions. Tibbles have more flexibility than dataframes and are part of the `tidyverse`. Dataframes are base R. When reading in tabular data, `read.csv()` will create a dataframe, while `read_csv()` will generate a tibble. `read_csv()` can be paired with `url()` to use data directly from the internet from sites like github. Note that if from github the raw file (click on raw tab when looking at github file) is needed for this to work.
+#Using either `dataframes` or `tibbles` will likely be the most common data structure for ecological data. Making these data structures is easy with the `data.frame()` or `tibble()` functions. Tibbles have more flexibility than dataframes and are part of the `tidyverse`. Dataframes are base R. When reading in tabular data, `read.csv()` will create a dataframe, while `read_csv()` will generate a tibble. `read_csv()` can be paired with `url()` to use data directly from the internet from sites like github. Note that if from github the raw file (click on raw tab when looking at github file) is needed for this to work.
 
-```{r workDF}
 library(tidyverse)
 # create a dataframe
 
@@ -66,12 +51,10 @@ read_csv('data/LDWFBayAnchovy2007.csv')
 # need to use raw file
 read_csv(url('https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWFBayAnchovy2007.csv'))
 
-```
 
 ### Renaming and making columns
-There are a few different ways to create a new column. The base R way is to use `$` with the object name of the dataframe on the left and the new column name on the right. This can be used to do vector operations as well. The other way is to the `mutate()` function which is part of the `dplyr` package in tidyverse. This function alows for more flexibility and can be very useful. The easiest way to rename columns is with `dplyr` functions like `rename()` or within function like `select()`.
+#There are a few different ways to create a new column. The base R way is to use `$` with the object name of the dataframe on the left and the new column name on the right. This can be used to do vector operations as well. The other way is to the `mutate()` function which is part of the `dplyr` package in tidyverse. This function alows for more flexibility and can be very useful. The easiest way to rename columns is with `dplyr` functions like `rename()` or within function like `select()`.
 
-```{r}
 df = tibble(name = c('GOOG', 'AMC', 'GME'),
             Jan = c(1000, 2, 4),
             Feb = c(1010, 15, 30),
@@ -100,12 +83,12 @@ df %>%
 # rename, reorder, only include certain columns 
 df %>%
   select(Name = name, January = Jan, sum, everything())
-```
+
 
 ### Summarizing data
-There are a few different useful ways to summarize the data in a dataframe or tibble. If you want to know everything about the dataframe, then the base function `summary()` is useful. If you would like to have more control to create summary tables, then `dplyr::summarize()` or `dplyr::summarise()` are great. This can be paired with `group_by()` to summarize over specific groups of data.
+#There are a few different useful ways to summarize the data in a dataframe or tibble. If you want to know everything about the dataframe, then the base function `summary()` is useful. If you would like to have more control to create summary tables, then `dplyr::summarize()` or `dplyr::summarise()` are great. This can be paired with `group_by()` to summarize over specific groups of data.
 
-```{r}
+
 summary(iris)
 
 iris %>% 
@@ -116,19 +99,17 @@ iris %>%
   group_by(Species)%>%
   summarize(mean(Petal.Width),
             sd(Petal.Width))
-```
 
 ### Merging and combining mulitple dataframes
-Combining data together is very common, and depending on the type of combination needed. 
+#Combining data together is very common, and depending on the type of combination needed. 
 
 #### Binding
-If data has the same column names and needs to paste together, then `rbind()` and `dplyr::bind_rows()` are the tools need. For `rbind()`, the column names need to have the same name. `bind_rows()` does not have this problem.
+#If data has the same column names and needs to paste together, then `rbind()` and `dplyr::bind_rows()` are the tools need. For `rbind()`, the column names need to have the same name. `bind_rows()` does not have this problem.
 
-```{r, error=T}
 # bind data together 
 sal = tibble(species = rep(c('Salmon'),times = 3),
-              year = c(1999,2005,2020),
-              catch = c(50, 60, 40))
+             year = c(1999,2005,2020),
+             catch = c(50, 60, 40))
 
 cod = tibble(species = rep('Cod', times = 3),
              year = c(1999,2005,2020),
@@ -146,17 +127,14 @@ bind_rows(sal, cod)
 
 bind_rows(sal, crab)
 
-```
-
 #### Merge/Join
-If two data frames contain different columns of data, then they can be merged together with the family of join functions.
+# If two data frames contain different columns of data, then they can be merged together with the family of join functions.
+# 
+# +`left_join()` = uses left df as template and joins all matching columns from right df 
+# +`right_join()` = uses right df as template and joins all matching columns from left df
+# +`inner_join()` = only matches columns contained in both dfs
+# +`full_join()` = combines all rows in both dfs
 
- +`left_join()` = uses left df as template and joins all matching columns from right df 
- +`right_join()` = uses right df as template and joins all matching columns from left df
- +`inner_join()` = only matches columns contained in both dfs
- +`full_join()` = combines all rows in both dfs
-
-```{r}
 left = tibble(name = c('a', 'b', 'c'),
               n = c(1, 6, 7), 
               bio = c(100, 43, 57))
@@ -182,13 +160,9 @@ col = tibble(species = c('Salmon', 'Cod'),
 
 left_join(fish, col, by = 'species')
 
-
-```
-
 ##  Indexing
-Once data is stored in an object, being able to retrieve those values is useful. Referred to as indexing, the syntax is specific to how the data is stored. With indexing specific values within your object can be modified. 
+#Once data is stored in an object, being able to retrieve those values is useful. Referred to as indexing, the syntax is specific to how the data is stored. With indexing specific values within your object can be modified. 
 
-```{r}
 # vector 
 b = 1:15
 # 3rd object 
@@ -224,14 +198,11 @@ mtcars$cyl[1]
 d$cyl[1]
 
 
-```
-
 ## Conditional statements
-In programing there are times that if something is true then you want an operation to occur, but not when a condition is not true. 
-### Base R
-These can be done with `if` and `if else` statements in base R. These are written if a condition is true then the operation is done. They can be built upon with `else if` if the first condition is false to do test a second condition. If you want it to be If true and if false do something else then `if` and `else` structure can be used. 
+# In programing there are times that if something is true then you want an operation to occur, but not when a condition is not true. 
+# ### Base R
+# These can be done with `if` and `if else` statements in base R. These are written if a condition is true then the operation is done. They can be built upon with `else if` if the first condition is false to do test a second condition. If you want it to be If true and if false do something else then `if` and `else` structure can be used. 
 
-```{r}
 b = 5 
 
 if (b == 5){
@@ -259,11 +230,9 @@ if (b == 10){
   cat('nothing')
 }
 
-```
 ### `dplyr` functions
-`dplyr` has two functions that are very useful for conditional statements. Because they are a function they can be vectorized which will be useful as you see below. `if_else()` is a function that based on if the input is `TRUE` or `FALSE` produces a different answer. `case_when()` is more flexible and allows for multple outputs based on conditions being `TRUE`
+#`dplyr` has two functions that are very useful for conditional statements. Because they are a function they can be vectorized which will be useful as you see below. `if_else()` is a function that based on if the input is `TRUE` or `FALSE` produces a different answer. `case_when()` is more flexible and allows for multple outputs based on conditions being `TRUE`
 
-```{r}
 x = 1:20
 
 if_else(x > 10,
@@ -276,14 +245,9 @@ case_when(x < 6 ~ 'x < 6',
           x > 15 ~ 'x > 15')
 
 
-
-```
-
-
 ##  For loops
-Another useful tool in programming is `for` loops. For loops repeat a process for a certain number of iterations. These can be useful iterate over a dataset or when using information in a time series. The `for` loop works over the number sequence indicated and does the code within the loop (inside of `{}`) for each number in the sequence. The iteration is typically indicated with `i`, but is just an object that is replaced at the begining of each loop and can be anything.
+#Another useful tool in programming is `for` loops. For loops repeat a process for a certain number of iterations. These can be useful iterate over a dataset or when using information in a time series. The `for` loop works over the number sequence indicated and does the code within the loop (inside of `{}`) for each number in the sequence. The iteration is typically indicated with `i`, but is just an object that is replaced at the begining of each loop and can be anything.
 
-```{r}
 for(i in 1:10){
   print(i)
 }
@@ -322,11 +286,8 @@ for (t in 1:10){
 }
 pop
 
-```
 ##  Vector operations 
-As we have seen above, we can do operations over vectors. We sometimes want to do this to vectors stored in dataframes/tibbles, and the `mutate()` function makes this easy. 
-
-```{r}
+#As we have seen above, we can do operations over vectors. We sometimes want to do this to vectors stored in dataframes/tibbles, and the `mutate()` function makes this easy. 
 iris %>% 
   mutate(petalArea = Petal.Length*Petal.Width)
 
@@ -343,17 +304,13 @@ iris %>%
   summarize(mean = mean(Petal.Width),
             n())
 
-
-```
-### `purr`
-The newest and new standard package with `tidyverse` is `purr` with its set of `map()` functions. Some similarity to `plyr` (and base) and `dplyr` functions but with more consistent names and arguments. Notice that map function can have some specification for the type of output.
-  + `map()` makes a list.
-  + `map_lgl()` makes a logical vector.
-  + `map_int()` makes an integer vector.
-  + `map_dbl()` makes a double vector.
-  + `map_chr()` makes a character vector.
-
-```{r}
+## `purr`
+# The newest and new standard package with `tidyverse` is `purr` with its set of `map()` functions. Some similarity to `plyr` (and base) and `dplyr` functions but with more consistent names and arguments. Notice that map function can have some specification for the type of output.
+# + `map()` makes a list.
+# + `map_lgl()` makes a logical vector.
+# + `map_int()` makes an integer vector.
+# + `map_dbl()` makes a double vector.
+# + `map_chr()` makes a character vector.
 
 df = iris %>%
   select(-Species)
@@ -384,7 +341,7 @@ mu <- list(5, 10, -3)
 mu %>% 
   map(rnorm, n = 5) %>% #rnorm - function to extract values from a normal continuous distribution based on some parameters
   
-str()
+  str()
 #> List of 3
 
 #Adding SD as well
@@ -406,44 +363,36 @@ args2 %>%
   pmap(rnorm) %>% 
   str()
 
-```
 
 ## Figures with `ggplot2` 
-The `ggplot2` package is part of the packages that load with `tidyverse` and has become the standard in ecology. The syntax builds upon on a base function and is very customizable [see cheat sheet](https://www.rstudio.com/resources/cheatsheets/). 
+# The `ggplot2` package is part of the packages that load with `tidyverse` and has become the standard in ecology. The syntax builds upon on a base function and is very customizable [see cheat sheet](https://www.rstudio.com/resources/cheatsheets/). 
+# 
+# The base of all `ggplot2` begins with `ggplot()` and `geom_...()` are built upon them 
 
-The base of all `ggplot2` begins with `ggplot()` and `geom_...()` are built upon them 
-
-```{r plot}
 # read in data
 df = read_csv(url('https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWFBayAnchovy2007.csv'))
 
 # plot number of Bay anchovy caught per month
 ggplot(df, aes(x = date, y = num))+
   geom_point()
-```
 
-Show color based on basin number and add line connecting dots
+#Show color based on basin number and add line connecting dots
 
-```{r}
 ggplot(df, aes(x = date, y = num, color = basin))+
   geom_point()+
   geom_line()
-```
-
-Change labels and style of plot
 
 
-```{r}
+#Change labels and style of plot
+
 ggplot(df, aes(x = date, y = num, color = basin))+
   geom_point()+
   geom_line()+
   labs(x = 'Date', y = 'Bay anchovy abundance')+
   theme_classic()
-```
 
-Modify the size of axis label text and legend position  
+#Modify the size of axis label text and legend position  
 
-```{r}
 ggplot(df, aes(x = date, y = num, color = basin))+
   geom_point()+
   geom_line()+
@@ -452,11 +401,9 @@ ggplot(df, aes(x = date, y = num, color = basin))+
   theme(axis.title = element_text(size = 14),
         axis.text = element_text(size = 12),
         legend.position = 'bottom')
-```
 
-Only plot specific range of the dates on x axis 
+#Only plot specific range of the dates on x axis 
 
-```{r}
 ggplot(df, aes(x = date, y = num, color = basin))+
   geom_point()+
   geom_line()+
@@ -467,11 +414,9 @@ ggplot(df, aes(x = date, y = num, color = basin))+
         axis.text = element_text(size = 12),
         legend.position = 'bottom',
         legend.title = element_blank())
-```
 
-Split each trial into own grid
+#Split each trial into own grid
 
-```{r}
 ggplot(df, aes(x = date, y = num))+
   geom_point()+
   geom_line()+
@@ -482,11 +427,9 @@ ggplot(df, aes(x = date, y = num))+
         axis.text = element_text(size = 12),
         legend.position = 'bottom',
         legend.title = element_blank())
-```
 
-Modify the date labels on x axis ([list of date abbreviations](https://rdrr.io/r/base/strptime.html)) and make 1 column of plots
+#Modify the date labels on x axis ([list of date abbreviations](https://rdrr.io/r/base/strptime.html)) and make 1 column of plots
 
-```{r}
 ggplot(df, aes(x = date, y = num))+
   geom_point()+
   geom_line()+
@@ -498,19 +441,17 @@ ggplot(df, aes(x = date, y = num))+
         axis.text = element_text(size = 12),
         legend.position = 'bottom',
         legend.title = element_blank())
-```
 
 
-Modify the label and size of strip text
+#Modify the label and size of strip text
 
 
-```{r}
 # doesn't change the order
 labels = c('Calcasieu' = 'CAL',
-          'Vermilion-Teche' = 'VER',
-          'Terrebonne' = 'TER',
-          'Barataria' = 'BAR',
-          'Pontchartrain' = 'PON')
+           'Vermilion-Teche' = 'VER',
+           'Terrebonne' = 'TER',
+           'Barataria' = 'BAR',
+           'Pontchartrain' = 'PON')
 
 ggplot(df, aes(x = date, y = num))+
   geom_point()+
@@ -524,14 +465,10 @@ ggplot(df, aes(x = date, y = num))+
         legend.position = 'bottom',
         legend.title = element_blank(),
         strip.text = element_text(size = 12))
-```
+
+#Remake figure with the mean Abundance and min and max values from each basin and the summarized line through the points
 
 
-
-Remake figure with the mean Abundance and min and max values from each basin and the summarized line through the points
-
-
-```{r}
 ggplot(df, aes(x = date, y = num))+
   geom_pointrange(stat = "summary",
                   fun.min = 'min',
@@ -543,44 +480,39 @@ ggplot(df, aes(x = date, y = num))+
   theme_classic()+
   theme(axis.title = element_text(size = 14),
         axis.text = element_text(size = 12))
-```
 
-Make box plot of number of seines per month within each basin 
+#Make box plot of number of seines per month within each basin 
 
-```{r}
 ggplot(df, aes(x = basin, y = seines))+
   geom_boxplot()+
   labs(x = NULL, y = '# of seines')+
   theme_bw()
-```
 
-Change order of x axis (make basin order from west to east) and color of plot. Colors can be both hex code or from names that R has. A help website for picking colors is [here](https://rstudio-pubs-static.s3.amazonaws.com/3486_79191ad32cf74955b4502b8530aad627.html).
+#Change order of x axis (make basin order from west to east) and color of plot. Colors can be both hex code or from names that R has. A help website for picking colors is [here](https://rstudio-pubs-static.s3.amazonaws.com/3486_79191ad32cf74955b4502b8530aad627.html).
 
-```{r ch}
 
 df = df %>% 
   mutate(basin = factor(basin, levels = c('Calcasieu',
-          'Vermilion-Teche',
-          'Terrebonne',
-          'Barataria',
-          'Pontchartrain' )))
+                                          'Vermilion-Teche',
+                                          'Terrebonne',
+                                          'Barataria',
+                                          'Pontchartrain' )))
 
 colors = c('Calcasieu' = 'darkred',
-          'Vermilion-Teche' = 'cadetblue4',
-          'Terrebonne' = '#FFC125',
-          'Barataria' = '#5d478b',
-          'Pontchartrain' = 'grey55')
+           'Vermilion-Teche' = 'cadetblue4',
+           'Terrebonne' = '#FFC125',
+           'Barataria' = '#5d478b',
+           'Pontchartrain' = 'grey55')
 
 ggplot(df, aes(x = basin, y = seines, fill = basin))+
   geom_boxplot()+
   labs(x = NULL, y = '# of seines')+
   scale_fill_manual(values = colors)+
   theme_bw()
-```
 
-Modify the labels and remove the legend
+#Modify the labels and remove the legend
 
-```{r}
+
 ggplot(df, aes(x = basin, y = seines, fill = basin))+
   geom_boxplot()+
   labs(x = NULL, y = '# of seines')+
@@ -591,12 +523,10 @@ ggplot(df, aes(x = basin, y = seines, fill = basin))+
         axis.text.x = element_text(size = 10, colour = "black"), 
         legend.position = 'none',
         legend.title = element_blank())
-```
 
 ### Combining plots 
-Sometimes we would like to combine different sub figures together to make a single figure. There are a few packages that can do this with `ggpubr` and `patchwork` some of the most common. I like `ggpubr` and use this one, but people seem to like `patchwork`. 
+#Sometimes we would like to combine different sub figures together to make a single figure. There are a few packages that can do this with `ggpubr` and `patchwork` some of the most common. I like `ggpubr` and use this one, but people seem to like `patchwork`. 
 
-```{r}
 library(ggpubr)
 library(wesanderson)
 
@@ -669,7 +599,7 @@ b = ggplot(mtcars, aes(mpg, color = as.character(cyl),
         panel.grid.minor = element_blank(),
         strip.text.x = element_text(size = 10),
         legend.text = element_text(size = 7))
-  
+
 
 c = ggplot(mtcars, aes(wt, mpg, group = cyl, color = as.character(cyl)))+
   geom_point(size = 2)+
@@ -704,14 +634,13 @@ ggarrange(ggarrange(a,b, labels = c('A','B'), common.legend = T),c,
           labels = c('','C'),
           nrow = 2,
           legend = 'none')
-  
-```
 
-## Exercises 
-1.    Read in the LDWFBayAnchovy2007.csv and create a column that calculates the catch per unit effort (CPUE) for Bay anchovy within the dataframe.
 
-2.    Create a dataframe or tibble that contains the basin names for the LDWFBayAnchovy2007.csv dataset (Barataria, Terrebonne, Ponchartrain, Vermilion-Teche, and Calcasieu) and the and abbreviation for each basin as a new column. 
-
-3.    Merge the dataframe/tibbles from exercises 1 and 2. 
-
-4.    Plot the CPUE for each basin both over time and as a summary of the entire year using a different color for each basin. 
+# ## Exercises 
+# 1.    Read in the LDWFBayAnchovy2007.csv and create a column that calculates the catch per unit effort (CPUE) for Bay anchovy within the dataframe.
+# 
+# 2.    Create a dataframe or tibble that contains the basin names for the LDWFBayAnchovy2007.csv dataset (Barataria, Terrebonne, Ponchartrain, Vermilion-Teche, and Calcasieu) and the and abbreviation for each basin as a new column. 
+# 
+# 3.    Merge the dataframe/tibbles from exercises 1 and 2. 
+# 
+# 4.    Plot the CPUE for each basin both over time and as a summary of the entire year using a different color for each basin. 
