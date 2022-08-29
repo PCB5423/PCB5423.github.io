@@ -37,7 +37,7 @@ data: [github](https://github.com/PCB5423/BSC6926_workshopScripts/blob/master/da
 ```{r, include = F}
 
 library(magrittr)
-readLines("data/LDWFBayAnchovy2007.csv.csv") %>% 
+readLines("data/LDWFBayAnchovy2007.csv") %>% 
   paste0(collapse="\n") %>% 
   openssl::base64_encode() -> encoded
 ```
