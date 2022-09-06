@@ -287,7 +287,7 @@ Slope of line in b is $r$ (intrisic rate of increase)
 ## Exercises
 1. Download primer and open primer package. Upload the sparrows dataset from package and plot counts as function of years. 
 
-2. Calculate the annual rate of increase ($lambda$) for each time step and plot $lambda$ as function of years as a scatterplot\
+2. Calculate the annual rate of increase ($\lambda$) for each time step and plot $\lambda$ as function of years as a scatterplot\
 *Hint: Look at the `for` loop/dplyr examples above*
 
 3. *Challenge*: Simulate a population with varying $\lambda$ at each time step.
