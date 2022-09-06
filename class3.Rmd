@@ -177,7 +177,7 @@ rbinom(5, size = 2, prob = 0.2)
 ```
 
 Packages like [truncnorm](https://www.rdocumentation.org/packages/truncnorm/versions/1.0-8/topics/truncnorm) can be useful for specialized cases of random number generation. In this case `truncnorm` generates numbers from a random normal distribution with within a minimum and maximum value. Note that there currently is not a 
-```{r eval=F}
+```{r}
 library(truncnorm)
 # truncnorm to truncate normal distribution
 rnorm(20, mean = 1, sd = 2)
