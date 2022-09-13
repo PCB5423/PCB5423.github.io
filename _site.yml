@@ -14,6 +14,8 @@ navbar:
       href: class2.html
     - text: "Workshop 3"
       href: class3.html
+    - text: "Workshop 4"
+      href: class4.html
 output:
   html_document:
     theme: yeti
