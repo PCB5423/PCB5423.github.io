@@ -8,16 +8,18 @@ navbar:
       href: sylb.html
     - text: "Computer setup"
       href: comp.html
-    - text: "Workshop 1"
+    - text: "WS 1"
       href: class1.html
-    - text: "Workshop 2"
+    - text: "WS 2"
       href: class2.html
-    - text: "Workshop 3"
+    - text: "WS 3"
       href: class3.html
-    - text: "Workshop 4"
+    - text: "WS 4"
       href: class4.html
-    - text: "Workshop 5"
+    - text: "WS 5"
       href: class5.html
+    - text: "WS 6"
+      href: class6.html
   right:
     - text: "HW 1"
       href: hw1.html
