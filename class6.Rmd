@@ -16,6 +16,8 @@ This workshop discusses working with community data.\
 
 [R script of workshop 6](workshop6.R)
 
+[data](https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/shrimp.csv)
+
 
 ## Community Data
 Community data can vary in format, but typically involves abundance, biomass, or CPUE data for multiple species collected in each sample. Data can be stored in wide (species ID for each column) or long format. When examining community data, the first step is usually data exploration which can be done by calculating summary statistics or plotting.
