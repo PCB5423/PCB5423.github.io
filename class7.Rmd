@@ -75,7 +75,9 @@ ggplot(average_div, aes(YEAR, mean_richness, color = STREAM))+
   theme_bw()
 ```
 
-## Diversity partitioning
+## Diversity partitioning 
+*-From Stevens 2010 - A primer of ecology with R*\
+
 We frequently refer to biodiversity (i.e., richness, Simpson’s, and Shannon diversity) at different spatial scales as $\alpha$, $\beta$, and $\gamma$ diversity.\
 
 Alpha diversity, $\alpha$, is the diversity of a point location or of a single sample.\
