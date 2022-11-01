@@ -25,6 +25,8 @@ navbar:
   right:
     - text: "HW 1"
       href: hw1.html
+    - text: "HW 2"
+      href: hw2.html
 output:
   html_document:
     theme: yeti

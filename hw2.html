@@ -11,9 +11,9 @@
 
 <meta name="author" content="BSC 6926 B53" />
 
-<meta name="date" content="2022-10-07" />
+<meta name="date" content="2022-10-25" />
 
-<title>Homework 1: Population growth models</title>
+<title>Homework 2: Community data</title>
 
 <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -355,9 +355,9 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Homework 1: Population growth models</h1>
+<h1 class="title toc-ignore">Homework 2: Community data</h1>
 <h4 class="author">BSC 6926 B53</h4>
-<h4 class="date">2022-10-07</h4>
+<h4 class="date">2022-10-25</h4>
 
 </div>
 
@@ -369,10 +369,10 @@ the class notes, the recommended books, and other web materials to help
 answer the questions. You can work on the homework in groups, but please
 independently send the R code and the answers to the short-essay
 questions.</p>
-<p><strong>In two weeks (10/21/22)</strong>, please submit your R code
+<p><strong>In two weeks (11/11/22)</strong>, please submit your R code
 (R, text, or HTML file) and short answers (.doc file) to CANVAS using
-the following filename structure LastName_HW1_Filetype_Date (e.g.,
-Santos_HW1_R_20210928). Again, you can share and work together on the
+the following filename structure LastName_HW2_Filetype_Date (e.g.,
+Santos_HW2_R_20221111). Again, you can share and work together on the
 code, but independently, submit your answers to the short essay
 questions in your own words. Please, add tables and figures for your
 answers in your doc file (i.e., do not refer me to the code). If you
@@ -381,121 +381,78 @@ and results, the better (optional).</p>
 </div>
 <div id="data-for-questions" class="section level2">
 <h2>Data for questions</h2>
-<p>For this homework, you will use two datasets. For sections 1 and 2,
-you will use a dataset from the <code>lterdatasampler</code> R package
-<a href="https://lter.github.io/lterdatasampler/"
-class="uri">https://lter.github.io/lterdatasampler/</a> called
-“and_vertebrates”. The <code>lterdatasampler</code> R package was
-created by the NSF LTER program <a href="https://lternet.edu"
-class="uri">https://lternet.edu</a> to provide data examples for
-educational purposes. This dataset consists of the populations of West
-Slope cutthroat trout (<em>Onchorhyncus clarki clarki</em>) in two
-standard reaches of Mack Creek in the H.J. Andrews Experimental Forest
-that have been monitored since 1987. The two standard reaches are in a
-section of clear-cut forest (ca. 1963) and an upstream old-growth forest
-(&gt;500 years). Sub-reaches are sampled with 2-pass electrofishing, and
-all trout individuals are measured and weighed.</p>
-<p>The second dataset is for section 3. This dataset will be available
-in CANVAS under the HW1 link in the Modules tab. This dataset is titled
-<a
-href="https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/coral_size_projection.csv">“coral_size_projection.csv”</a>.
-The dataset consists of a projection matrix of coral size transitions
-that was modified from several reports/papers. In other words, the
-matrix includes the probability of transition between coral size classes
-or stages.</p>
+<p>For this homework, you will use one dataset. This dataset will be
+available in CANVAS under the HW2 link in the Modules tab and on the
+workshop website. This dataset is titled (LDWF2007seine.csv)[<a
+href="https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWF2007seine.csv"
+class="uri">https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWF2007seine.csv</a>].
+The dataset consists of nektonic species collected throughout the
+coastal marshes of Louisiana using seine nets. The sampling was
+performed monthly across distinct sampling basins (strata), and used to
+count all the individuals of species caught in the seine nets.</p>
 </div>
 <div id="questions" class="section level2">
 <h2>Questions</h2>
-<div id="section-1-21-pts" class="section level3">
-<h3>Section 1 (21 pts)</h3>
+<div id="section-1---exploratory-analysis-of-the-community-20-pts"
+class="section level3">
+<h3>Section 1 - Exploratory Analysis of the Community (20 pts)</h3>
 <ol style="list-style-type: decimal">
-<li><p>Upload “and_vertebrates” into R-Studio (remember you have to
-download the lterdatasampler R package before). Using R, create a new
-dataset by selecting only Cutthroat trout data from the lower reach
-section, then calculate abundance (total number of individuals
-collected) by sitecode and year for Cutthroat trout. Please, use “Nt” to
-name the column with the abundance data. Here are details about the
-“and_vertebrates” data useful to answer this question (look for info in
-the “Table Column Descriptions” tab in Data Entities - <a
-href="https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-and.4027.14"
-class="uri">https://portal.edirepository.org/nis/metadataviewer?packageid=knb-lter-and.4027.14</a>
-(5 pts).</p></li>
-<li><p>Plot annual estimates of trout abundance per sitecode (1
-pts).</p></li>
-<li><p>Short Essay Question 1.1 – How do the temporal trends of
-Cutthroat Trout between the sitecode compare (3 pts)?</p></li>
-<li><p>Using R, calculate lambda from one year to the next (i.e., for
-each time step) for the two reach (sitecode) you selected. Try using
-either a for-loop or functions (1 pts).</p></li>
-<li><p>Calculate the mean(λ) and sd(λ) for the two reaches using your
-calculation from Q1.4. Remember to use the geometric mean and its
-standard deviation (1 pts).</p></li>
-<li><p>Project the population of trout in the two reaches for up to 50
-years using an exponential model with environmental stochasticity. Run
-the projections ten times for each reach (i.e., ten projections per
-reach).<br />
-</p>
-<ul>
-<li>Use the ten as a starting N (N_0), and at each time step, use a
-randomly determined λ based on the mean and standard deviation
-calculated in Q1.5 – Hint: rtruncnorm() function in R and for loops
-(e.g., Wickham and Grolemund Chapter 17) (3 pts).</li>
-</ul></li>
-<li><p>Using ggplot, plot the population projections for each reach (2
-pts).</p></li>
-<li><p>Short essay question 1.2: How does the variance of the
-projections change with time? How do the predictions for each reach
-differ? Is there a difference in the likelihood of a population collapse
-between the two reaches? (5 pts).</p></li>
+<li><p>Upload the LDWF seine data,filter for seines collected in the
+Calcasieu, Terrebonne, and Pontchartrain basin, and create a month
+column. (5pts)<br />
+<em>-Hint: use the <code>lubridate</code> package and create a column
+for month based on the information in the date column (YYYYMMDD
+format)</em></p></li>
+<li><p>Identify the 15 most abundant species caught across these three
+basins based on the species’ average abundance. (5 pts).</p></li>
+<li><p>Calculate the average abundance of the top 15 species in each
+basin, and plot the average abundance for each species for each basin
+using a heat map (5 pts). <em>-Hint:
+<code>geom_raster()</code>.</em></p></li>
+<li><p><em>Short essay question 1.1:</em> Based on the heatmaps, what
+can you conclude about the communities/assemblages across basins? (5
+pts)</p></li>
 </ol>
 </div>
-<div id="section-2-17-pts" class="section level3">
-<h3>Section 2 (17 pts)</h3>
+<div id="section-2-community-assemblage-dissimilarities-20-pts"
+class="section level3">
+<h3>Section 2 – Community assemblage dissimilarities (20 pts)</h3>
 <ol style="list-style-type: decimal">
-<li><p>Using the same dataset from Section 1, estimate K from your
-lambda and abundance estimates for both reaches (3 pts). Hint: Remember
-the linear relationship between density and per-capita growth rate in
-the density-dependent model discussed in class and the
-workshop.</p></li>
-<li><p>Using a discrete density-dependent growth model, project the
-population growth for trout populations in both reaches to 50 years
-based on the carrying capacity values estimated in Q2. Hint: <span
-class="math inline">\(1 + r_d = \lambda\)</span>; See Gotelli pages
-35-37 and pages Stevens 62-68 (3 pts).</p></li>
-<li><p>Using ggplot, plot the population projections for each reach (1
+<li><p>Calculate each species’ monthly mean abundance per basin (3
+pts).<br />
+</p></li>
+<li><p>Convert the dataset from long format to wide format (2
 pts).</p></li>
-<li><p>Short essay question 2.1: How do the projections for each reach
-differ? Did the population get as far as the carrying capacity? Why or
-why not? If not, how many years are required to reach the carrying
-capacity? When at carrying capacity, do the population fluctuate around
-K? Why or Why not? (10 pts)</p></li>
+<li><p>Calculate the Bray Curtis dissimilarity and identify which points
+have the lowest and highest dissimilarity (5 pts). <em>-Hint: Make a
+column that contains both the basin and the month to use as rownames of
+your matrix</em></p></li>
+<li><p>Project dissimilarity into 2-dimensional space using nonmetric
+multidimensional scaling and illustrate the results in a biplot (5
+pts).</p></li>
+<li><p><em>Short essay question 2.1:</em> Based on the nMDS, what can
+you conclude about the communities/assemblages across basins? (5
+pts)</p></li>
 </ol>
 </div>
-<div id="section-3-17-pts" class="section level3">
-<h3>Section 3 (17 pts)</h3>
-<p><img src="coral_model.png" /></p>
+</div>
+<div
+id="section-3---characterize-the-species-diversity-of-the-nektonic-community-15-pts"
+class="section level2">
+<h2>Section 3 - Characterize the species diversity of the nektonic
+community (15 pts)</h2>
 <ol style="list-style-type: decimal">
-<li><p>Upload the <a
-href="https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/coral_size_projection.csv">“coral_size_projection.csv”</a>
-data frame and convert it into a 4 x 4 matrix (1 pt).</p></li>
-<li><p>Create a starting population vector based on the life stages of
-this coral species: crust (N = 100), small (N = 30), medium (N = 20),
-large (N = 10). Project the population up to 50 years using the starting
-population vector and the projection matrix you created (hint: A%*%n(t);
-See Stevens Chapter 2 pages 34-40) (5 pts).</p></li>
-<li><p>Short essay question 3.1: Plot your results using ggplot or base
-R plotting functions. Plot the projection for each size/stage class. Did
-the population projection reach a stable age distribution? Why or why
-not? What could you tell about the fate of the population after 50
-years? (5 pts).</p></li>
-<li><p>Based on the project matrix above, calculate lambda and calculate
-the stable size distribution (1 pt).</p></li>
-<li><p>Short essay question 3.2: Is the population continuously
-shrinking or growing based on your calculated lambda? What would be the
-dominant size of this coral population after the stable distribution is
-reached? Why? (5 pts).</p></li>
+<li><p>Using the vegan package or a for loop, calculate the species
+richness, Simpson’s evenness index, and Shannon index (<span
+class="math inline">\(H\)</span>) per month for each basin (5
+pts).</p></li>
+<li><p>Plot each metric from question 1 for each month and basin (3
+pts).</p></li>
+<li><p><em>Short essay question 3.1:</em> Based on species richness,
+Simpson, and Shannon indices, what is happening to species diversity
+across basins and months? What can you tell about species evenness by
+looking at the plot? (7 pts).</p></li>
 </ol>
-</div>
 </div>
 
 
