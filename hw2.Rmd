@@ -21,7 +21,7 @@ Please, using RStudio and R, answer the questions below. You can use the class n
 
 ## Data for questions
 
-For this homework, you will use one dataset. This dataset will be available in CANVAS under the HW2 link in the Modules tab and on the workshop website. This dataset is titled (LDWF2007seine.csv)[https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWF2007seine.csv]. The dataset consists of nektonic species collected throughout the coastal marshes of Louisiana using seine nets. The sampling was performed monthly across distinct sampling basins (strata), and used to count all the individuals of species caught in the seine nets.  
+For this homework, you will use one dataset. This dataset will be available in CANVAS under the HW2 link in the Modules tab and on the workshop website. This dataset is titled [LDWF2007seine.csv](https://raw.githubusercontent.com/PCB5423/BSC6926_workshopScripts/master/data/LDWF2007seine.csv). The dataset consists of nektonic species collected throughout the coastal marshes of Louisiana using seine nets. The sampling was performed monthly across distinct sampling basins (strata), and used to count all the individuals of species caught in the seine nets.  
 
 ## Questions
 
