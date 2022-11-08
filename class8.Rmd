@@ -194,17 +194,11 @@ summary_stat(jags.bf)
 
 This is a custom function that was written to import the output of the mixing models 
 
-**note** for this to work, all columns must be on the same row like this:
+**note** for this to work, all columns must be on the same row like this:\
+![](mmOutputEx.PNG)
 
-```{r outgood, echo=FALSE, out.width="50%"}
-knitr::include_graphics("C:/Users/wrjam/Dropbox/WorkDocs/R/Github/ExCode/Hypervolumes/figs/mmOutputEx.PNG")   
-```
-
-and not wrapped like this:
-
-```{r outbad, echo=FALSE, out.width="50%"}
-knitr::include_graphics("C:/Users/wrjam/Dropbox/WorkDocs/R/Github/ExCode/Hypervolumes/figs/mmOutputBad.PNG")   
-```
+and not wrapped like this:\
+![](mmOutputBad.PNG)
 
 Use the `mixTable` function to load data
 
