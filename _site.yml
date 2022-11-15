@@ -24,6 +24,8 @@ navbar:
       href: class7.html
     - text: "WS 8"
       href: class8.html
+    - text: "WS 9"
+      href: class9.html
   right:
     - text: "HW 1"
       href: hw1.html
