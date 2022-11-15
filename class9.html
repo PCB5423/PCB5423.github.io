@@ -701,16 +701,15 @@ network.</p>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;bottomleft&quot;</span>, <span class="at">legend =</span> my_pal<span class="sc">$</span>Group, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>,</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">pt.bg =</span> my_pal<span class="sc">$</span>col, <span class="at">pt.cex =</span> <span class="dv">2</span>, <span class="at">cex =</span> .<span class="dv">8</span>, <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="class9_files/figure-html/unnamed-chunk-3-9.png" width="672" /></p>
-<div id="custom-functions-for-plotting" class="section level3">
-<h3>Custom functions for plotting</h3>
+</div>
+<div id="custom-functions-for-plotting" class="section level2">
+<h2>Custom functions for plotting</h2>
 <p><a href="https://rfrelat.github.io/BalticFoodWeb.html">Kortsch et
 al.</a> created custom functions to take trophic linkages netwrok and
 automatically plot based on a calculated trophic level that averages
 based on all of the trophic linkages of the node.</p>
-</div>
-</div>
-<div id="functions" class="section level2">
-<h2>functions</h2>
+<div id="functions" class="section level3">
+<h3>functions</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>trophiclevels <span class="ot">=</span> <span class="cf">function</span>(net){</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Get adjacency matrix </span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  mat <span class="ot">&lt;-</span> <span class="fu">get.adjacency</span>(net, <span class="at">sparse=</span>F)</span>
@@ -809,6 +808,7 @@ based on all of the trophic linkages of the node.</p>
 <span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(res) <span class="ot">&lt;-</span> <span class="fu">V</span>(net)<span class="sc">$</span>name</span>
 <span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">invisible</span>(res)</span>
 <span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
 <div id="plot" class="section level3">
 <h3>Plot</h3>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotfw</span>(tl.net, <span class="at">col=</span>nodes<span class="sc">$</span>col, <span class="at">size =</span> <span class="dv">10</span>,</span>
