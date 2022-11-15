@@ -298,3 +298,4 @@ For these exercises use the [LDWF seine sampling dataset](https://raw.githubuser
 
 4. Plot the Bray-Curtis and jaccard dissimilarity for each site. 
 
+[exercise solutions](exercise solutions/workshop7ExSoln.R)
