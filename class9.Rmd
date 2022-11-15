@@ -125,7 +125,7 @@ legend("bottomleft", legend = my_pal$Group, pch = 21, col = "black",
 ```
 
 ## Custom functions for plotting
-[Kortsch et al.](https://rfrelat.github.io/BalticFoodWeb.html) created custom functions to take trophic linkages netwrok and automatically plot based on a calculated trophic level that averages based on all of the trophic linkages of the node. 
+[Kortsch et al.](https://rfrelat.github.io/BalticFoodWeb.html) created custom functions to take trophic linkages network and automatically plot based on a calculated trophic level that averages based on all of the trophic linkages of the node. 
 
 ### functions
 ```{r}
